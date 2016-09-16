@@ -16,9 +16,6 @@ alias vi='vim'
 alias lmp_serial='~/packages/lammps/src/lmp_serial'
 alias ...='../../'
 alias ....='../../../'
-alias sudo superpac='sudo pacman -Syu && \
-	sudo pacman-optimize && \
-	sudo paccache -r'
 
 shopt -s autocd
 
