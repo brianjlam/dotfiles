@@ -15,8 +15,17 @@ alias n='nautilus .'
 alias vi='vim'
 alias lmp_serial='~/packages/lammps/src/lmp_serial'
 alias ...='../../'
+alias ....='../../../'
+alias sudo superpac='sudo pacman -Syu && \
+	sudo pacman-optimize && \
+	sudo paccache -r'
 
 shopt -s autocd
+
+# Bash Calculator
+=() { 					# Define function '='
+	bc -l <<< "scale=10;$@"
+}
 
 # Allow ibus usage.
 export GTK_IM_MODULE=ibus
