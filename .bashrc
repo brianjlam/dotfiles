@@ -6,10 +6,14 @@
 # Prompt
 PS1='\[\e[1;32m\]\u@\h \[\e[0m\]\W\[\e[1;32m\]\$\[\e[0m\] '
 
+# Title Bar
+PROMPT_COMMAND='echo -ne "\e]0;$(pwd -P)\a"'
+
 # Aliases
 alias c='clear'
-alias cll='clear && ls -l --color=auto'
-alias ll='ls -l --color=auto'
+alias cll='clear && ls -lh --group-directories-first --color=auto'
+alias h='history'
+alias ll='ls -lh --group-directories-first --color=auto'
 alias ls='ls --color=auto'
 alias n='nautilus .'
 alias vi='vim'
@@ -23,6 +27,9 @@ shopt -s autocd
 =() { 					# Define function '='
 	bc -l <<< "scale=10;$@"
 }
+
+# Python Calculator
+alias pc='python -ic "from __future__ import division; from math import *"'
 
 # Allow ibus usage.
 export GTK_IM_MODULE=ibus
