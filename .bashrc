@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 # Prompt
-PS1='\[\e[1;32m\]\u@\h \[\e[0m\]\W\[\e[1;32m\]\$\[\e[0m\] '
+PS1='\[\e[1;32m\]\u@\h \[\e[0m\]\W\[\e[1;32m\]🐳\[\e[0m\] '
 
 # Title Bar
 PROMPT_COMMAND='echo -ne "\e]0;$(pwd -P)\a"'
@@ -40,3 +40,4 @@ export QT_IM_MODULE=ibus
 if [ -e /etc/profile.d/vte.sh ]; then
 	. /etc/profile.d/vte.sh
 fi
+cd /home/brian
