@@ -11,19 +11,33 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'LaTex-Suite-aka-Vim-LaTex'
+Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 filetype plugin indent on    		" Required for Vundle
 
-
 " ----------------------------------------------------------------------------
 " Non-plugin Settings
 " ----------------------------------------------------------------------------
-colorscheme koehler 
+colorscheme koehler
 syntax on
+
+" autocmd vimenter * NERDTree
+
+" For powerline ---
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup
+python3 del powerline_setup
+set noshowmode
+set laststatus=2
+set showtabline=2
+set t_Co=256
+" -----------------
 
 set autoread
 set tabstop=4
@@ -69,6 +83,10 @@ nnoremap ; :
 nnoremap <space> za
 nnoremap gV `[v`]
 
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " ----------------------------------------------------------------------------
 " Switch cursor between Insert and Normal

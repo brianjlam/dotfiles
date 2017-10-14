@@ -4,12 +4,16 @@
 [[ $- != *i* ]] && return
 
 # Prompt
-PS1='\[\e[1;32m\]\u@\h \[\e[0m\]\W\[\e[1;32m\]🐳\[\e[0m\] '
+lightgreen='\e[1;32m'
+resetcolor='\e[0m'
+
+PS1="\[${lightgreen}\]\u@\h \[${resetcolor}\]\W\[${lightgreen}\]🐳\[${resetcolor}\] "
 
 # Title Bar
 PROMPT_COMMAND='echo -ne "\e]0;$(pwd -P)\a"'
 
 # Aliases
+alias ipy='ipython -i'
 alias c='clear'
 alias cll='clear && ls -lh --group-directories-first --color=auto'
 alias h='history'
@@ -20,6 +24,7 @@ alias vi='vim'
 alias lmp_serial='~/packages/lammps/src/lmp_serial'
 alias ...='../../'
 alias ....='../../../'
+alias .....='../../../../'
 
 shopt -s autocd
 
@@ -41,3 +46,11 @@ if [ -e /etc/profile.d/vte.sh ]; then
 	. /etc/profile.d/vte.sh
 fi
 cd /home/brian
+
+if [ -f `which powerline-daemon` ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	. /usr/share/powerline/bash/powerline.sh
+fi
+
