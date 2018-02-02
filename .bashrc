@@ -27,14 +27,12 @@ alias ....='../../../'
 alias .....='../../../../'
 
 shopt -s autocd
+shopt -s checkwinsize
 
-# Bash Calculator
-=() { 					# Define function '='
-	bc -l <<< "scale=10;$@"
-}
-
-# Python Calculator
-alias pc='python -ic "from __future__ import division; from math import *"'
+# Set default editor
+export VISUAL=vim
+export EDITOR=vim
+export SUDO_EDITOR=vim
 
 # Allow ibus usage.
 export GTK_IM_MODULE=ibus
@@ -45,12 +43,11 @@ export QT_IM_MODULE=ibus
 if [ -e /etc/profile.d/vte.sh ]; then
 	. /etc/profile.d/vte.sh
 fi
-cd /home/brian
 
 if [ -f `which powerline-daemon` ]; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
-	. /usr/share/powerline/bash/powerline.sh
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bash/powerline.sh
 fi
 

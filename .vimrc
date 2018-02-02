@@ -16,41 +16,51 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-obsession'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 call vundle#end()
 
 filetype plugin indent on    		" Required for Vundle
 
+" Powerline ------------------------------------------------------------------
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set t_Co=256
+" -----------------------------------------------------------------------------
+
+
 " ----------------------------------------------------------------------------
 " Non-plugin Settings
 " ----------------------------------------------------------------------------
-colorscheme koehler
+colorscheme gruvbox
+
+let g:rehash256 = 1
+
 syntax on
 
 " autocmd vimenter * NERDTree
 
-" For powerline ---
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup
-python3 del powerline_setup
-set noshowmode
-set laststatus=2
-set showtabline=2
-set t_Co=256
-" -----------------
-
+set background=dark
 set autoread
 set tabstop=4
 set shiftwidth=4 		" Set number of spaces to autoindent
 set autoindent
+set list lcs=tab:\|\ "here is a space"
 
 set number 				" Enable line numbering
 set wildmenu
 set showmatch			" Highlight matching parentheses
-set foldenable
-set foldlevelstart=10
-set foldmethod=indent
-set vb t_vb= 
+set foldenable			" Enable folding
+set foldlevelstart=10	" Fold only after 10th level indent by default
+set foldmethod=indent	" Determine folds based on indentation
+set vb t_vb= 			" Disable visualbell
 set bs=indent,eol,start " Backspace over everything in insert mode
 set hidden
 
@@ -59,6 +69,9 @@ set hlsearch        	" Highlight all search matches
 set ignorecase
 set smartcase
 
+set colorcolumn=80
+"hi Normal ctermbg=none
+"hi NonText ctermbg=none
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
@@ -82,6 +95,7 @@ inoremap <Up> <C-o>gk
 nnoremap ; :
 nnoremap <space> za
 nnoremap gV `[v`]
+nnoremap Y y$
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -98,5 +112,4 @@ else
 	let &t_SI = "\<Esc>[5 q"
     let &t_EI = "\<Esc>[1 q"
 endif
-
 " ----------------------------------------------------------------------------
