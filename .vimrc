@@ -72,7 +72,7 @@ set smartcase
 set colorcolumn=80
 "hi Normal ctermbg=none
 "hi NonText ctermbg=none
-let g:tex_flavor='latex'
+let g:tex_flavor='lualatex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
 let g:netrw_liststyle=3

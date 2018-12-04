@@ -38,6 +38,7 @@ export SUDO_EDITOR=vim
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+export PATH=$PATH:/home/brian/bin
 
 # Open new tabs in current directory.
 if [ -e /etc/profile.d/vte.sh ]; then
